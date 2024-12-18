@@ -3,6 +3,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import { Roboto } from 'next/font/google';
 import Provider from "@/components/Provider";
+import { Suspense } from 'react';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,11 +36,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${parkinsans.className} antialiased`}
       >
+        <Suspense>
         <Provider>
         <Nav />
         {children}
         <script src="https://kit.fontawesome.com/7ebdac75d5.js" crossOrigin="anonymous"></script>
       </Provider>
+      </Suspense>
       </body>
       
     </html>

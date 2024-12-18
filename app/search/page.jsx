@@ -1,6 +1,7 @@
 import SearchCard from '@/components/SearchCard'
 import SearchResult from '@/components/SearchResult';
-import React from 'react'
+import React from 'react';
+import { Suspense } from 'react';
 const page = async ({ searchParams }) => {
   const params = await searchParams;
   const query =params.query || '';
@@ -30,7 +31,9 @@ const page = async ({ searchParams }) => {
   
 
   return (
+    <Suspense>
     <SearchResult searchResults={searchResults} query={query}/>
+    </Suspense>
   )
 }
 
